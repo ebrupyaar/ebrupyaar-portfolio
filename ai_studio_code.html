@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebrupyaar Portfolio — Creative &amp; Motion Designer</title>
+    <meta name="description" content="Creative &amp; Motion Designer portfolio for Ebrupyaar (@ebrupyaar) showcasing Graphic Design, 3D, Video Editing, UI/UX, and CV Creation.">
+    <meta property="og:title" content="Ebrupyaar Portfolio — Creative &amp; Motion Designer">
+    <meta property="og:description" content="Creative &amp; Motion Designer portfolio for Ebrupyaar (@ebrupyaar) showcasing Graphic Design, 3D, Video Editing, UI/UX, and CV Creation.">
+    <meta property="og:type" content="website">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D4AFF',
+                        'primary-dark': '#5835EB',
+                        secondary: '#8B5CF6',
+                        accent: '#F3E8FF',
+                        darkBg: '#0F1117',
+                        darkCard: '#181B24'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans Ethiopic', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Plus Jakarta Sans & Noto Sans Ethiopic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', system-ui, sans-serif; }
+
+        .graphic-grid-bg {
+            background-image: radial-gradient(rgba(109, 74, 255, 0.14) 1.25px, transparent 1.25px);
+            background-size: 28px 28px;
+        }
+        .dark .graphic-grid-bg {
+            background-image: radial-gradient(rgba(139, 92, 246, 0.16) 1.25px, transparent 1.25px);
+            background-size: 28px 28px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.85);
+        }
+        .dark .glass-card {
+            background: rgba(24, 27, 36, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+        .animate-float-slow { animation: floatSlow 7s ease-in-out infinite; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#F9F8FF] text-slate-800 dark:bg-darkBg dark:text-slate-100 graphic-grid-bg transition-colors duration-300 selection:bg-primary selection:text-white relative overflow-x-hidden">
+
+    <!-- Decorative Graphic Design SVG Accents -->
+    <div class="pointer-events-none fixed inset-0 overflow-hidden z-0 opacity-40 dark:opacity-25">
+        <svg class="absolute -top-16 -left-16 w-96 h-96 text-primary/20 animate-float-slow" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="78" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 6" />
+            <rect x="65" y="65" width="70" height="70" rx="14" stroke="currentColor" stroke-width="1.5" transform="rotate(15 100 100)" />
+            <circle cx="100" cy="22" r="4" fill="currentColor" />
+            <circle cx="178" cy="100" r="4" fill="currentColor" />
+        </svg>
+        <svg class="absolute bottom-10 -right-12 w-[28rem] h-[28rem] text-purple-500/20" viewBox="0 0 300 300" fill="none">
+            <path d="M30 220 C 90 80, 210 240, 270 70" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="30" y1="220" x2="90" y2="80" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" />
+            <line x1="270" y1="70" x2="210" y2="240" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" />
+            <rect x="86" y="76" width="8" height="8" fill="currentColor" />
+            <rect x="206" y="236" width="8" height="8" fill="currentColor" />
+            <circle cx="30" cy="220" r="5" stroke="currentColor" stroke-width="2" fill="white" />
+            <circle cx="270" cy="70" r="5" stroke="currentColor" stroke-width="2" fill="white" />
+        </svg>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-box" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-sm font-medium border border-slate-700 dark:border-slate-200">
+            <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"></i>
+            <span id="toast-msg">Notification</span>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-white/85 dark:bg-darkBg/85 backdrop-blur-md border-b border-purple-100/80 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 sm:gap-8">
+            <a href="#" class="flex items-center space-x-3 group shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-purple-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/25 group-hover:scale-105 transition">
+                    <i class="fa-solid fa-pen-nib"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white block whitespace-nowrap">Ebrupyaar</span>
+                    <span data-i18n="brandSub" class="text-[11px] font-medium text-primary dark:text-purple-300 block whitespace-nowrap">Graphic, 3D &amp; Motion</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                <a href="#portfolio" data-i18n="navPortfolio" class="hover:text-primary transition whitespace-nowrap shrink-0">Portfolio</a>
+                <a href="#skills" data-i18n="navTools" class="hover:text-primary transition whitespace-nowrap shrink-0">Tools &amp; Services</a>
+                <a href="#about" data-i18n="navAbout" class="hover:text-primary transition whitespace-nowrap shrink-0">About</a>
+                <a href="#contact" data-i18n="navContact" class="hover:text-primary transition whitespace-nowrap shrink-0">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-1.5 sm:space-x-3 shrink-0">
+                <button type="button" onclick="toggleLanguage()" id="lang-toggle-btn" title="Switch Language" class="px-2.5 sm:px-3 py-2 text-xs font-bold rounded-xl bg-purple-50 dark:bg-slate-800 text-primary dark:text-purple-300 border border-purple-200/70 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-700 transition flex items-center space-x-1.5 whitespace-nowrap shrink-0 cursor-pointer">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="lang-label">EN | አማ</span>
+                </button>
+
+                <button type="button" onclick="toggleTheme()" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center justify-center shrink-0 cursor-pointer">
+                    <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
+                </button>
+
+                <button type="button" onclick="handleAdminClick()" id="admin-nav-btn" class="px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold bg-primary text-white rounded-xl hover:bg-primary-dark transition shadow-md shadow-primary/20 flex items-center space-x-1.5 sm:space-x-2 whitespace-nowrap shrink-0 cursor-pointer">
+                    <i id="admin-lock-icon" class="fa-solid fa-lock text-xs"></i>
+                    <span data-i18n="navAdmin">Admin</span>
+                </button>
+
+                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu" class="lg:hidden w-9 h-9 rounded-xl bg-purple-50 dark:bg-slate-800 text-primary dark:text-purple-300 border border-purple-200/70 dark:border-slate-700 flex items-center justify-center shrink-0 cursor-pointer">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-nav-menu" class="hidden lg:hidden bg-white/95 dark:bg-darkCard/95 backdrop-blur-md border-t border-purple-100 dark:border-slate-800 px-4 py-4 space-y-2 shadow-lg">
+            <a href="#portfolio" onclick="toggleMobileMenu(false)" data-i18n="navPortfolio" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-slate-800">Portfolio</a>
+            <a href="#skills" onclick="toggleMobileMenu(false)" data-i18n="navTools" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-slate-800">Tools &amp; Services</a>
+            <a href="#about" onclick="toggleMobileMenu(false)" data-i18n="navAbout" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-slate-800">About</a>
+            <a href="#contact" onclick="toggleMobileMenu(false)" data-i18n="navContact" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-slate-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow relative z-10">
+        <!-- HERO SECTION -->
+        <section class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <p data-i18n="heroBadge" class="text-xs font-bold uppercase tracking-wider text-primary dark:text-purple-300">Ebrupyaar Creative Studio</p>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight [text-wrap:balance]">
+                            <span data-i18n="heroTitle1">Creative Visuals, 3D &amp;</span> <br>
+                            <span data-i18n="heroTitle2" class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-indigo-500">Motion Design.</span>
+                        </h1>
+                        <p data-i18n="heroDesc" class="text-sm sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Welcome to Ebrupyaar Portfolio. Explore creative works crafted with Photoshop, Illustrator, After Effects, Premiere Pro, Blender, Canva, Figma, and custom CV Creation.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                            <a href="#portfolio" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-primary text-white font-semibold shadow-lg shadow-primary/30 hover:bg-primary-dark transition text-center flex items-center justify-center space-x-2 text-sm sm:text-base whitespace-nowrap shrink-0">
+                                <span data-i18n="btnViewWork">Explore Projects</span>
+                                <i class="fa-solid fa-arrow-down text-xs"></i>
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white dark:bg-darkCard text-slate-700 dark:text-slate-200 font-semibold border border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary transition text-center flex items-center justify-center space-x-2 shadow-sm text-sm sm:text-base whitespace-nowrap shrink-0">
+                                <i class="fa-solid fa-paper-plane text-primary"></i>
+                                <span data-i18n="btnHireMe">Connect @ebrupyaar</span>
+                            </a>
+                        </div>
+
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 pt-1">
+                            <a href="https://linkedin.com/in/ebrupyaar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn @ebrupyaar" class="w-9 h-9 rounded-xl bg-white dark:bg-darkCard border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:border-blue-600 transition shadow-sm"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                            <a href="https://t.me/ebrupyaar" target="_blank" rel="noopener noreferrer" aria-label="Telegram @ebrupyaar" class="w-9 h-9 rounded-xl bg-white dark:bg-darkCard border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-sky-500 hover:border-sky-500 transition shadow-sm"><i class="fa-brands fa-telegram text-sm"></i></a>
+                            <a href="https://tiktok.com/@ebrupyaar" target="_blank" rel="noopener noreferrer" aria-label="TikTok @ebrupyaar" class="w-9 h-9 rounded-xl bg-white dark:bg-darkCard border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary hover:border-primary transition shadow-sm"><i class="fa-brands fa-tiktok text-sm"></i></a>
+                            <a href="https://facebook.com/ebrupyaar" target="_blank" rel="noopener noreferrer" aria-label="Facebook @ebrupyaar" class="w-9 h-9 rounded-xl bg-white dark:bg-darkCard border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-700 hover:border-blue-700 transition shadow-sm"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                            <a href="https://youtube.com/@ebrupyaar" target="_blank" rel="noopener noreferrer" aria-label="YouTube @ebrupyaar" class="w-9 h-9 rounded-xl bg-white dark:bg-darkCard border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-red-600 hover:border-red-600 transition shadow-sm"><i class="fa-brands fa-youtube text-sm"></i></a>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-6 border-t border-slate-200/80 dark:border-slate-800 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <h3 id="stat-total-projects" class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tabular-nums">9+</h3>
+                                <p data-i18n="statProjects" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Featured Works</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tabular-nums">8 Skills</h3>
+                                <p data-i18n="statTools" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Design, 3D &amp; CV</p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-2xl font-extrabold text-primary truncate">@ebrupyaar</h3>
+                                <p data-i18n="statSocial" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">Official Handle</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="absolute -inset-2 bg-gradient-to-r from-primary to-indigo-500 rounded-3xl blur-xl opacity-20"></div>
+                            <div class="relative glass-card rounded-3xl p-5 sm:p-6 shadow-2xl">
+                                <div class="aspect-video rounded-2xl overflow-hidden bg-slate-900 relative group">
+                                    <img id="hero-showreel-img" src="" alt="Ebrupyaar Featured Work" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent flex items-end p-4 sm:p-5">
+                                        <div>
+                                            <span class="text-xs font-semibold text-purple-300">@ebrupyaar</span>
+                                            <h4 data-i18n="heroCardTitle" class="text-white font-bold text-sm sm:text-lg mt-0.5">Graphic, Video, 3D &amp; CV Studio</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 sm:mt-5 space-y-3">
+                                    <div class="flex items-center justify-between text-[11px] sm:text-xs">
+                                        <span data-i18n="heroCardTools" class="font-semibold text-slate-700 dark:text-slate-200">Ps • Ai • Ae • Pr • Blender • Canva • Figma • CV</span>
+                                        <div class="flex space-x-2 text-primary shrink-0 ml-2">
+                                            <i class="fa-solid fa-cube"></i>
+                                            <i class="fa-solid fa-film"></i>
+                                            <i class="fa-solid fa-file-lines"></i>
+                                        </div>
+                                    </div>
+                                    <div class="w-full bg-purple-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+                                        <div class="bg-gradient-to-r from-primary to-purple-400 h-2 rounded-full w-full"></div>
+                                    </div>
+                                    <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                                        <span>Ebrupyaar Portfolio</span>
+                                        <span class="text-primary font-semibold">@ebrupyaar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOLS & SERVICES BADGES SECTION -->
+        <section id="skills" class="py-12 sm:py-16 bg-white/80 dark:bg-darkCard/80 backdrop-blur-sm border-y border-purple-100 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 data-i18n="toolsHeading" class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Creative Software &amp; Services</h2>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-5">
+                    <button type="button" onclick="filterAndScroll('Photoshop')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-blue-950 text-cyan-400 flex items-center justify-center font-bold text-base sm:text-lg shrink-0">Ps</div>
+                        <div class="text-left min-w-0">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">Photoshop</h4>
+                            <span data-i18n="toolPs" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">Posters &amp; Art</span>
+                        </div>
+                    </button>
+                    <button type="button" onclick="filterAndScroll('Illustrator')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-amber-950 text-amber-400 flex items-center justify-center font-bold text-base sm:text-lg shrink-0">Ai</div>
+                        <div class="text-left min-w-0">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">Illustrator</h4>
+                            <span data-i18n="toolAi" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">Logos &amp; Vector</span>
+                        </div>
+                    </button>
+                    <button type="button" onclick="filterAndScroll('After Effects')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-purple-950 text-purple-300 flex items-center justify-center font-bold text-base sm:text-lg shrink-0">Ae</div>
+                        <div class="text-left min-w-0">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">After Effects</h4>
+                            <span data-i18n="toolAe" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">Motion &amp; VFX</span>
+                        </div>
+                    </button>
+                    <button type="button" onclick="filterAndScroll('Premiere Pro')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-950 text-indigo-300 flex items-center justify-center font-bold text-base sm:text-lg shrink-0">Pr</div>
+                        <div class="text-left min-w-0">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">Premiere Pro</h4>
+                            <span data-i18n="toolPr" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">Video Editing</span>
+                        </div>
+                    </button>
+                    <button type="button" onclick="filterAndScroll('Blender')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-orange-950 text-orange-400 flex items-center justify-center font-bold text-base sm:text-lg shrink-0"><i class="fa-solid fa-cube"></i></div>
+                        <div class="text-left min-w-0">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">Blender 3D</h4>
+                            <span data-i18n="toolBlender" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">3D Modeling</span>
+                        </div>
+                    </button>
+                    <button type="button" onclick="filterAndScroll('Canva')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-teal-950 text-teal-300 flex items-center justify-center font-bold text-base sm:text-lg shrink-0">Cn</div>
+                        <div class="text-left min-w-0">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">Canva</h4>
+                            <span data-i18n="toolCanva" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">Social Media</span>
+                        </div>
+                    </button>
+                    <button type="button" onclick="filterAndScroll('Figma')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-rose-950 text-rose-400 flex items-center justify-center font-bold text-base sm:text-lg shrink-0">Fi</div>
+                        <div class="text-left min-w-0">
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">Figma</h4>
+                            <span data-i18n="toolFigma" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">UI / UX Design</span>
+                        </div>
+                    </button>
+                    <button type="button" onclick="filterAndScroll('CV Creator')" class="cursor-pointer flex items-center space-x-3 p-3.5 sm:p-4 rounded-2xl bg-[#F9F8FF] dark:bg-slate-900/70 border border-purple-100 dark:border-slate-800 hover:border-primary transition text-left">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-950 text-emerald-400 flex items-center justify-center font-bold text-base sm:text-lg shrink-0"><i class="fa-solid fa-file-signature"></i></div>
+                        <div class="text-left min-w-0">
+                            <h4 data-i18n="toolCvTitle" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">CV Creator</h4>
+                            <span data-i18n="toolCv" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 block truncate">Modern Resumes</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SHOWCASE SECTION -->
+        <section id="portfolio" class="py-16 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10">
+                    <div>
+                        <span data-i18n="gallerySub" class="text-primary font-bold text-xs sm:text-sm tracking-wider uppercase">Portfolio Gallery</span>
+                        <h2 data-i18n="galleryTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1 [text-wrap:balance]">Selected Creative Works</h2>
+                    </div>
+
+                    <div id="filter-container" class="flex flex-wrap gap-2 mt-5 lg:mt-0">
+                        <button type="button" onclick="filterProjects('All')" data-filter="All" data-i18n="filterAll" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-primary text-white transition shadow-sm whitespace-nowrap shrink-0 cursor-pointer">All Works</button>
+                        <button type="button" onclick="filterProjects('Photoshop')" data-filter="Photoshop" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">Photoshop</button>
+                        <button type="button" onclick="filterProjects('Illustrator')" data-filter="Illustrator" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">Illustrator</button>
+                        <button type="button" onclick="filterProjects('After Effects')" data-filter="After Effects" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">After Effects</button>
+                        <button type="button" onclick="filterProjects('Premiere Pro')" data-filter="Premiere Pro" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">Premiere Pro</button>
+                        <button type="button" onclick="filterProjects('Blender')" data-filter="Blender" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">Blender</button>
+                        <button type="button" onclick="filterProjects('Canva')" data-filter="Canva" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">Canva</button>
+                        <button type="button" onclick="filterProjects('Figma')" data-filter="Figma" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">Figma</button>
+                        <button type="button" onclick="filterProjects('CV Creator')" data-filter="CV Creator" class="filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer">CV Creator</button>
+                    </div>
+                </div>
+
+                <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+                <div id="load-more-wrapper" class="mt-10 text-center hidden">
+                    <button type="button" onclick="toggleShowAllProjects()" id="load-more-btn" class="inline-flex items-center space-x-2 px-7 py-3.5 rounded-2xl bg-white dark:bg-darkCard text-primary dark:text-purple-300 font-bold text-sm border border-purple-200 dark:border-slate-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition shadow-md cursor-pointer">
+                        <span id="load-more-text">Load More Works</span>
+                        <i id="load-more-icon" class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-16 sm:py-20 bg-white/80 dark:bg-darkCard/80 backdrop-blur-sm border-t border-purple-100 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                    <div class="lg:col-span-5">
+                        <div class="aspect-square rounded-3xl overflow-hidden bg-purple-100 dark:bg-slate-800 relative shadow-xl border border-purple-200 dark:border-slate-700 max-w-sm sm:max-w-md mx-auto">
+                            <img id="about-studio-img" src="" alt="Ebrupyaar Profile" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                        <span data-i18n="aboutSub" class="text-primary font-bold text-xs sm:text-sm tracking-wider uppercase">About Ebrupyaar</span>
+                        <h2 data-i18n="aboutTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white [text-wrap:balance]">Turning Creative Ideas into Visual Impact</h2>
+                        <p data-i18n="aboutP1" class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                            Hi, I'm Ebrupyaar — a multidisciplinary Graphic Designer, Video Editor, 3D Artist, and CV Creator. I craft eye-catching posters in Photoshop, clean logos in Illustrator, motion graphics in After Effects, cinematic edits in Premiere Pro, 3D renders in Blender, modern UI in Figma &amp; Canva, and executive CVs that get you hired.
+                        </p>
+                        <p data-i18n="aboutP2" class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                            Browse my latest works above or connect with me across LinkedIn, Telegram, TikTok, Facebook, and YouTube using @ebrupyaar.
+                        </p>
+                        <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6">
+                            <div>
+                                <h4 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">@ebrupyaar</h4>
+                                <span data-i18n="aboutHandleLabel" class="text-xs text-slate-500 dark:text-slate-400">All Social Media Platforms</span>
+                            </div>
+                            <div class="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+                            <div>
+                                <h4 class="text-xl sm:text-2xl font-extrabold text-primary tabular-nums">100%</h4>
+                                <span data-i18n="aboutQualityLabel" class="text-xs text-slate-500 dark:text-slate-400">Creative Dedication</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & SOCIAL MEDIA SECTION -->
+        <section id="contact" class="py-16 sm:py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-3xl p-6 sm:p-12 shadow-xl text-center space-y-6">
+                    <span data-i18n="contactSub" class="text-primary dark:text-purple-300 text-xs font-bold uppercase tracking-wider block">Let's Work Together</span>
+                    <h2 data-i18n="contactTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white [text-wrap:balance]">Connect with @ebrupyaar</h2>
+                    <p data-i18n="contactDesc" class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto text-sm sm:text-base">
+                        Follow my daily creative journey or message me directly on LinkedIn, Telegram, TikTok, Facebook, or YouTube using <strong class="text-primary">@ebrupyaar</strong>.
+                    </p>
+
+                    <div class="flex justify-center">
+                        <button type="button" onclick="copyHandle()" class="inline-flex items-center space-x-2.5 px-5 py-2.5 rounded-2xl bg-purple-50 dark:bg-slate-800 text-primary dark:text-purple-300 border border-purple-200 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-700 transition font-bold text-sm cursor-pointer">
+                            <span>@ebrupyaar</span>
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 pt-4">
+                        <a href="https://linkedin.com/in/ebrupyaar" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-blue-600 hover:-translate-y-1 transition shadow-sm group">
+                            <i class="fa-brands fa-linkedin text-2xl text-blue-600 mb-2 group-hover:scale-110 transition"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-white">LinkedIn</span>
+                            <span class="text-[11px] text-slate-400">@ebrupyaar</span>
+                        </a>
+                        <a href="https://t.me/ebrupyaar" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-sky-500 hover:-translate-y-1 transition shadow-sm group">
+                            <i class="fa-brands fa-telegram text-2xl text-sky-500 mb-2 group-hover:scale-110 transition"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-white">Telegram</span>
+                            <span class="text-[11px] text-slate-400">@ebrupyaar</span>
+                        </a>
+                        <a href="https://tiktok.com/@ebrupyaar" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-primary hover:-translate-y-1 transition shadow-sm group">
+                            <i class="fa-brands fa-tiktok text-2xl text-slate-900 dark:text-white mb-2 group-hover:scale-110 transition"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-white">TikTok</span>
+                            <span class="text-[11px] text-slate-400">@ebrupyaar</span>
+                        </a>
+                        <a href="https://facebook.com/ebrupyaar" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-blue-700 hover:-translate-y-1 transition shadow-sm group">
+                            <i class="fa-brands fa-facebook text-2xl text-blue-700 mb-2 group-hover:scale-110 transition"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-white">Facebook</span>
+                            <span class="text-[11px] text-slate-400">@ebrupyaar</span>
+                        </a>
+                        <a href="https://youtube.com/@ebrupyaar" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-red-600 hover:-translate-y-1 transition shadow-sm group col-span-2 sm:col-span-1">
+                            <i class="fa-brands fa-youtube text-2xl text-red-600 mb-2 group-hover:scale-110 transition"></i>
+                            <span class="text-xs font-bold text-slate-800 dark:text-white">YouTube</span>
+                            <span class="text-[11px] text-slate-400">@ebrupyaar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 dark:bg-black text-slate-400 py-10 border-t border-slate-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-pen-nib text-sm"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white">Ebrupyaar Portfolio</span>
+                </div>
+                <div class="flex space-x-6 text-lg text-white">
+                    <a href="https://linkedin.com/in/ebrupyaar" target="_blank" rel="noopener noreferrer" title="LinkedIn @ebrupyaar" class="hover:text-primary transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://t.me/ebrupyaar" target="_blank" rel="noopener noreferrer" title="Telegram @ebrupyaar" class="hover:text-primary transition"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://tiktok.com/@ebrupyaar" target="_blank" rel="noopener noreferrer" title="TikTok @ebrupyaar" class="hover:text-primary transition"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://facebook.com/ebrupyaar" target="_blank" rel="noopener noreferrer" title="Facebook @ebrupyaar" class="hover:text-primary transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://youtube.com/@ebrupyaar" target="_blank" rel="noopener noreferrer" title="YouTube @ebrupyaar" class="hover:text-primary transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <p data-i18n="footerCopy" class="text-xs text-slate-500 text-center">&copy; 2026 Ebrupyaar Portfolio (@ebrupyaar). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 6-DIGIT PIN VERIFICATION MODAL -->
+    <div id="pin-modal" onclick="if(event.target===this) togglePinModal(false)" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-darkCard rounded-3xl max-w-sm w-full p-7 shadow-2xl relative border border-slate-100 dark:border-slate-800 text-center">
+            <button type="button" onclick="togglePinModal(false)" aria-label="Close PIN modal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-950 text-primary mx-auto flex items-center justify-center text-2xl mb-4">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 data-i18n="pinTitle" class="text-xl font-extrabold text-slate-900 dark:text-white">Admin Access</h3>
+            <p data-i18n="pinSubtitle" class="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-5">Enter your 6-digit PIN to upload or manage projects.</p>
+
+            <form onsubmit="verifyAdminPin(event)" class="space-y-4">
+                <input type="password" id="admin-pin-input" maxlength="6" inputmode="numeric" pattern="[0-9]{6}" required placeholder="••••••" class="w-full text-center tracking-[0.6em] text-2xl font-extrabold px-4 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:outline-none tabular-nums">
+                <p id="pin-error-msg" class="text-xs font-semibold text-rose-500 hidden">Incorrect 6-digit PIN. Please try again.</p>
+                <button type="submit" data-i18n="pinSubmit" class="w-full py-3 rounded-xl bg-primary text-white font-bold text-sm hover:bg-primary-dark transition shadow-lg shadow-primary/25 cursor-pointer">
+                    Unlock Admin Panel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN UPLOAD MODAL -->
+    <div id="admin-modal" onclick="if(event.target===this) toggleAdminModal(false)" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-darkCard rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 dark:border-slate-800 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Ebrupyaar Admin Upload</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Add new creative image or video project.</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button type="button" onclick="lockAdminSession()" title="Lock Admin Session" class="px-3 py-1.5 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 text-xs font-bold hover:bg-rose-100 transition cursor-pointer">
+                        <i class="fa-solid fa-lock mr-1"></i> Lock
+                    </button>
+                    <button type="button" onclick="toggleAdminModal(false)" aria-label="Close Admin Modal" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center hover:bg-slate-200 transition cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <form id="upload-form" onsubmit="handleProjectSubmit(event)" class="space-y-4">
+                <div>
+                    <label for="proj-title" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase mb-1">Project Title</label>
+                    <input type="text" id="proj-title" required placeholder="e.g., Motion Showreel or Brand Identity" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:outline-none text-sm">
+                </div>
+
+                <div>
+                    <label for="proj-category" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase mb-1">Software / Service Category</label>
+                    <select id="proj-category" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:outline-none text-sm">
+                        <option value="Photoshop">Photoshop</option>
+                        <option value="Illustrator">Illustrator</option>
+                        <option value="After Effects">After Effects</option>
+                        <option value="Premiere Pro">Premiere Pro</option>
+                        <option value="Blender">Blender</option>
+                        <option value="Canva">Canva</option>
+                        <option value="Figma">Figma</option>
+                        <option value="CV Creator">CV Creator</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="proj-file" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase mb-1">Upload Image or Video File (Optional)</label>
+                    <input type="file" id="proj-file" accept="image/*,video/*" onchange="handleFileSelect(event)" class="w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-purple-50 dark:file:bg-purple-950 file:text-primary hover:file:bg-purple-100 cursor-pointer">
+                    <p id="file-size-warning" class="hidden text-[11px] text-amber-600 dark:text-amber-400 mt-1"></p>
+                </div>
+
+                <div>
+                    <label for="proj-url" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase mb-1">Or Image / Video Link URL</label>
+                    <input type="text" id="proj-url" oninput="updateAdminPreview()" placeholder="YouTube, Shorts, TikTok, Vimeo, Instagram, MP4, or Image URL" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:outline-none text-sm">
+                    <span class="text-[11px] text-slate-400 mt-1 block">Supports YouTube, YouTube Shorts, TikTok, Vimeo, Instagram Reels, Google Drive, direct MP4, and image links.</span>
+                </div>
+
+                <div>
+                    <span class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase mb-1.5">Display Size / Aspect Format</span>
+                    <div id="aspect-selector" class="flex flex-wrap gap-1.5">
+                        <button type="button" data-aspect="auto" onclick="selectAspect('auto')" class="aspect-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary text-white shadow-sm transition cursor-pointer">Auto-Detect</button>
+                        <button type="button" data-aspect="16:9" onclick="selectAspect('16:9')" class="aspect-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-700 transition cursor-pointer">YouTube (16:9)</button>
+                        <button type="button" data-aspect="9:16" onclick="selectAspect('9:16')" class="aspect-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-700 transition cursor-pointer">TikTok / Shorts (9:16)</button>
+                        <button type="button" data-aspect="1:1" onclick="selectAspect('1:1')" class="aspect-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-700 transition cursor-pointer">Square (1:1)</button>
+                        <button type="button" data-aspect="4:5" onclick="selectAspect('4:5')" class="aspect-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-700 transition cursor-pointer">Portrait (4:5)</button>
+                    </div>
+                </div>
+
+                <div id="admin-preview-box" class="hidden rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-50 dark:bg-slate-900/80 p-3 space-y-2">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="font-semibold text-slate-700 dark:text-slate-200">Live Preview</span>
+                        <span id="admin-preview-meta" class="text-primary dark:text-purple-300 font-bold tabular-nums"></span>
+                    </div>
+                    <div id="admin-preview-media" class="rounded-xl overflow-hidden"></div>
+                    <p id="admin-tiktok-tip" class="hidden text-[11px] text-amber-600 dark:text-amber-400">
+                        Tip: Paste a full TikTok URL (e.g. https://www.tiktok.com/@user/video/1234567890) for inline playback.
+                    </p>
+                </div>
+
+                <div>
+                    <label for="proj-desc" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase mb-1">Description</label>
+                    <textarea id="proj-desc" rows="3" required placeholder="Describe the design concept and tools used..." class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:outline-none text-sm"></textarea>
+                </div>
+
+                <div class="pt-4 flex items-center justify-end space-x-3">
+                    <button type="button" onclick="toggleAdminModal(false)" class="px-5 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition cursor-pointer">Cancel</button>
+                    <button type="submit" class="px-6 py-2.5 text-sm font-semibold bg-primary text-white rounded-xl hover:bg-primary-dark transition shadow-lg shadow-primary/25 cursor-pointer">Publish Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" onclick="if(event.target===this) toggleLightbox(false)" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-darkCard rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 dark:border-slate-800 max-h-[92vh] overflow-y-auto">
+            <button type="button" onclick="toggleLightbox(false)" aria-label="Close Lightbox" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition z-10 cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="lightbox-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const ADMIN_PIN = '252525';
+        const INITIAL_VISIBLE_COUNT = 4;
+        const STORAGE_PROJECTS_KEY = 'ebrupyaar_portfolio_v2';
+        let isAdminUnlocked = false;
+        let showAllProjects = false;
+        let uploadedDataUrl = '';
+        let selectedMediaAspect = 'auto';
+        let currentLang = localStorage.getItem('ebrupyaar_lang') || 'en';
+        let currentTheme = localStorage.getItem('ebrupyaar_theme') || 'light';
+        let currentFilter = 'All';
+        const tiktokMetaCache = new Map();
+
+        function svgToDataUrl(svg) {
+            return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg.trim());
+        }
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        const FALLBACK_PROJECT_ART = svgToDataUrl(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+              <defs><linearGradient id="fb" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#6D4AFF"/><stop offset="100%" stop-color="#312E81"/></linearGradient></defs>
+              <rect width="800" height="600" fill="url(#fb)"/>
+              <circle cx="400" cy="270" r="90" stroke="white" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="8 8"/>
+              <rect x="355" y="225" width="90" height="90" rx="18" stroke="white" stroke-opacity="0.5" stroke-width="2" transform="rotate(15 400 270)"/>
+              <text x="400" y="420" text-anchor="middle" fill="white" font-family="sans-serif" font-size="28" font-weight="700">Ebrupyaar Studio</text>
+              <text x="400" y="454" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif" font-size="16">@ebrupyaar</text>
+            </svg>
+        `);
+
+        const HERO_SHOWREEL_ART = svgToDataUrl(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" fill="none">
+              <defs>
+                <linearGradient id="hsBg" x1="0" y1="0" x2="960" y2="540" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#141029"/><stop offset="55%" stop-color="#2B1B66"/><stop offset="100%" stop-color="#5835EB"/></linearGradient>
+                <radialGradient id="hsGlow" cx="0.65" cy="0.35" r="0.5"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.55"/><stop offset="100%" stop-color="#6D4AFF" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="960" height="540" fill="url(#hsBg)"/><rect width="960" height="540" fill="url(#hsGlow)"/>
+              <g stroke="white" stroke-opacity="0.08" stroke-width="1"><line x1="0" y1="135" x2="960" y2="135"/><line x1="0" y1="270" x2="960" y2="270"/><line x1="0" y1="405" x2="960" y2="405"/><line x1="240" y1="0" x2="240" y2="540"/><line x1="480" y1="0" x2="480" y2="540"/><line x1="720" y1="0" x2="720" y2="540"/></g>
+              <g transform="translate(560, 120)"><polygon points="120,0 224,60 120,120 16,60" fill="#A78BFA" fill-opacity="0.35" stroke="#E9D5FF" stroke-width="2"/><polygon points="16,60 120,120 120,240 16,180" fill="#6D4AFF" fill-opacity="0.6" stroke="#C4B5FD" stroke-width="2"/><polygon points="224,60 224,180 120,240 120,120" fill="#4C1D95" fill-opacity="0.8" stroke="#C4B5FD" stroke-width="2"/></g>
+              <path d="M80 370 C 200 140, 380 420, 560 180" stroke="#DDD6FE" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="80" cy="370" r="7" fill="#6D4AFF" stroke="white" stroke-width="2.5"/><circle cx="560" cy="180" r="7" fill="#6D4AFF" stroke="white" stroke-width="2.5"/>
+              <rect x="80" y="92" width="320" height="10" rx="5" fill="white" fill-opacity="0.16"/><rect x="80" y="92" width="190" height="10" rx="5" fill="#A78BFA"/>
+              <text x="80" y="230" fill="white" font-family="sans-serif" font-size="44" font-weight="800" letter-spacing="-1">CREATIVE</text>
+              <text x="80" y="280" fill="#DDD6FE" font-family="sans-serif" font-size="44" font-weight="800" letter-spacing="-1">SHOWREEL</text>
+            </svg>
+        `);
+
+        const ABOUT_STUDIO_ART = svgToDataUrl(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+              <defs><linearGradient id="abBg" x1="0" y1="0" x2="600" y2="600" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3B0764"/><stop offset="50%" stop-color="#6D4AFF"/><stop offset="100%" stop-color="#4338CA"/></linearGradient></defs>
+              <rect width="600" height="600" fill="url(#abBg)"/>
+              <circle cx="300" cy="275" r="190" stroke="white" stroke-opacity="0.16" stroke-width="1.5" stroke-dasharray="8 8"/>
+              <circle cx="300" cy="275" r="136" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.24" stroke-width="1.5"/>
+              <path d="M300 165 L355 280 L325 350 L275 350 L245 280 Z" fill="white" fill-opacity="0.92"/>
+              <line x1="300" y1="165" x2="300" y2="275" stroke="#6D4AFF" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="300" cy="285" r="12" fill="#6D4AFF"/><rect x="268" y="358" width="64" height="18" rx="6" fill="#DDD6FE"/>
+              <text x="300" y="458" text-anchor="middle" fill="white" font-family="sans-serif" font-size="30" font-weight="800">Ebrupyaar Studio</text>
+              <text x="300" y="492" text-anchor="middle" fill="#E9D5FF" font-family="sans-serif" font-size="16" font-weight="600">Graphic • 3D • Motion • CV</text>
+            </svg>
+        `);
+
+        const defaultProjects = [
+            { id: 'p1', title: 'Cyberpunk Neon Street Manipulation', category: 'Photoshop', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><defs><linearGradient id="p1g" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0F0728"/><stop offset="55%" stop-color="#4C1D95"/><stop offset="100%" stop-color="#6D4AFF"/></linearGradient></defs><rect width="800" height="600" fill="url(#p1g)"/><path d="M0 460 L260 320 L540 320 L800 460 L800 600 L0 600 Z" fill="#1E1B4B" fill-opacity="0.85"/><line x1="400" y1="320" x2="400" y2="600" stroke="#38BDF8" stroke-width="3" stroke-dasharray="18 14"/><rect x="130" y="130" width="110" height="210" rx="8" fill="#312E81" stroke="#38BDF8" stroke-width="3"/><rect x="550" y="100" width="130" height="240" rx="8" fill="#3B0764" stroke="#F472B6" stroke-width="3"/><circle cx="400" cy="210" r="88" fill="#EC4899" fill-opacity="0.22" stroke="#F472B6" stroke-width="3"/><text x="400" y="218" text-anchor="middle" fill="white" font-family="sans-serif" font-size="26" font-weight="800">NEON COMPOSITE</text><text x="400" y="530" text-anchor="middle" fill="#C4B5FD" font-family="sans-serif" font-size="16" font-weight="600">Adobe Photoshop · Photo Manipulation</text></svg>`), desc: 'Advanced digital photo manipulation featuring custom neon lighting, atmospheric depth, and color grading in Adobe Photoshop.' },
+            { id: 'p2', title: 'Modern Brand Identity & Vector Logo', category: 'Illustrator', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><rect width="800" height="600" fill="#2E1065"/><g stroke="#A78BFA" stroke-opacity="0.18" stroke-width="1"><circle cx="400" cy="260" r="150"/><circle cx="400" cy="260" r="100"/><line x1="200" y1="260" x2="600" y2="260"/><line x1="400" y1="60" x2="400" y2="460"/></g><path d="M400 135 L495 260 L400 385 L305 260 Z" fill="#F59E0B" fill-opacity="0.88"/><circle cx="400" cy="260" r="44" fill="#2E1065" stroke="#FEF3C7" stroke-width="6"/><text x="400" y="485" text-anchor="middle" fill="white" font-family="sans-serif" font-size="24" font-weight="800">GEOMETRIC BRAND SYSTEM</text><text x="400" y="518" text-anchor="middle" fill="#DDD6FE" font-family="sans-serif" font-size="15" font-weight="600">Adobe Illustrator · Vector Grid</text></svg>`), desc: 'Clean geometric vector brand mark and typography system crafted in Adobe Illustrator.' },
+            { id: 'p3', title: 'Dynamic Logo Reveal & Motion Reel', category: 'After Effects', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><rect width="800" height="600" fill="#1E1B4B"/><circle cx="400" cy="240" r="130" stroke="#818CF8" stroke-width="3" stroke-dasharray="22 10"/><circle cx="400" cy="240" r="95" stroke="#C084FC" stroke-width="5"/><polygon points="375,195 450,240 375,285" fill="white"/><line x1="120" y1="450" x2="680" y2="450" stroke="#6366F1" stroke-width="3"/><rect x="210" y="440" width="20" height="20" transform="rotate(45 220 450)" fill="#38BDF8"/><rect x="390" y="440" width="20" height="20" transform="rotate(45 400 450)" fill="#C084FC"/><rect x="570" y="440" width="20" height="20" transform="rotate(45 580 450)" fill="#34D399"/><text x="400" y="525" text-anchor="middle" fill="#E0E7FF" font-family="sans-serif" font-size="18" font-weight="700">After Effects · Keyframe Motion Reel</text></svg>`), desc: 'Smooth shape layer animation, kinetic typography, and sound-synced transitions created in Adobe After Effects.' },
+            { id: 'p4', title: 'Cinematic Commercial Promo Edit', category: 'Premiere Pro', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><rect width="800" height="600" fill="#0F172A"/><rect x="90" y="90" width="620" height="290" rx="16" fill="#1E1B4B" stroke="#6366F1" stroke-width="2"/><rect x="90" y="410" width="380" height="32" rx="6" fill="#6D4AFF"/><rect x="482" y="410" width="228" height="32" rx="6" fill="#8B5CF6"/><rect x="90" y="454" width="260" height="26" rx="6" fill="#0EA5E9" fill-opacity="0.8"/><rect x="362" y="454" width="348" height="26" rx="6" fill="#10B981" fill-opacity="0.75"/><line x1="395" y1="80" x2="395" y2="495" stroke="#F43F5E" stroke-width="2.5"/><text x="400" y="232" text-anchor="middle" fill="white" font-family="sans-serif" font-size="30" font-weight="800">COMMERCIAL CUT</text><text x="400" y="268" text-anchor="middle" fill="#A5B4FC" font-family="sans-serif" font-size="16" font-weight="600">Color Grading &amp; Multi-Track Audio</text></svg>`), desc: 'High-energy commercial video editing with color grading, speed ramps, and crisp audio mixing in Adobe Premiere Pro.' },
+            { id: 'p5', title: '3D Isometric Studio & Product Render', category: 'Blender', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><defs><linearGradient id="b3d" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#431407"/><stop offset="100%" stop-color="#9A3412"/></linearGradient></defs><rect width="800" height="600" fill="url(#b3d)"/><ellipse cx="400" cy="410" rx="210" ry="60" fill="black" fill-opacity="0.28"/><g transform="translate(270, 120)"><polygon points="130,0 260,75 130,150 0,75" fill="#FDBA74"/><polygon points="0,75 130,150 130,290 0,215" fill="#EA580C"/><polygon points="260,75 260,215 130,290 130,150" fill="#9A3412"/><circle cx="130" cy="75" r="34" fill="#FFF7ED" fill-opacity="0.9"/></g><text x="400" y="520" text-anchor="middle" fill="#FFEDD5" font-family="sans-serif" font-size="20" font-weight="700">Blender 3D · Cycles Studio Lighting</text></svg>`), desc: 'Photorealistic 3D product modeling, custom shaders, and Cycles studio lighting rendered in Blender.' },
+            { id: 'p6', title: 'Executive Modern Resume & CV Template', category: 'CV Creator', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><rect width="800" height="600" fill="#064E3B"/><rect x="210" y="65" width="380" height="470" rx="14" fill="white"/><rect x="210" y="65" width="130" height="470" rx="14" fill="#047857"/><circle cx="275" cy="140" r="36" fill="#A7F3D0"/><rect x="370" y="110" width="175" height="16" rx="6" fill="#0F172A"/><rect x="370" y="138" width="120" height="10" rx="5" fill="#10B981"/><rect x="370" y="185" width="185" height="10" rx="5" fill="#CBD5E1"/><rect x="370" y="207" width="160" height="10" rx="5" fill="#CBD5E1"/><rect x="370" y="275" width="145" height="12" rx="6" fill="#334155"/><rect x="370" y="302" width="185" height="10" rx="5" fill="#CBD5E1"/></svg>`), desc: 'Clean, ATS-friendly, and visually striking professional CV layout tailored to help candidates stand out.' },
+            { id: 'p7', title: 'Mobile App UI / UX Design System', category: 'Figma', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><rect width="800" height="600" fill="#3B0764"/><rect x="175" y="95" width="200" height="410" rx="28" fill="#181B24" stroke="#A855F7" stroke-width="3"/><rect x="195" y="135" width="160" height="90" rx="14" fill="#6D4AFF"/><rect x="425" y="130" width="210" height="340" rx="22" fill="#F9F8FF"/><rect x="448" y="160" width="164" height="28" rx="8" fill="#6D4AFF"/><rect x="448" y="206" width="164" height="92" rx="12" fill="#EDE9FE"/><rect x="448" y="390" width="164" height="42" rx="12" fill="#6D4AFF"/></svg>`), desc: 'Interactive mobile interface prototype with clean violet accents and user-friendly navigation in Figma.' },
+            { id: 'p8', title: 'Social Media Campaign & Promo Pack', category: 'Canva', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><defs><linearGradient id="cnv" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#5B21B6"/><stop offset="100%" stop-color="#0D9488"/></linearGradient></defs><rect width="800" height="600" fill="url(#cnv)"/><rect x="115" y="110" width="175" height="380" rx="18" fill="white" fill-opacity="0.94"/><rect x="312" y="85" width="176" height="430" rx="18" fill="#0F172A"/><rect x="510" y="110" width="175" height="380" rx="18" fill="white" fill-opacity="0.94"/><rect x="334" y="120" width="132" height="132" rx="14" fill="#6D4AFF"/><text x="400" y="305" text-anchor="middle" fill="white" font-family="sans-serif" font-size="22" font-weight="800">@EBRUPYAAR</text><text x="400" y="335" text-anchor="middle" fill="#5EEAD4" font-family="sans-serif" font-size="14" font-weight="600">CAROUSEL PACK</text></svg>`), desc: 'High-converting social media carousel and promotional templates designed in Canva for @ebrupyaar.' },
+            { id: 'p9', title: 'Creative Tech Specialist CV Portfolio', category: 'CV Creator', url: svgToDataUrl(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><rect width="800" height="600" fill="#134E4A"/><rect x="190" y="65" width="420" height="470" rx="16" fill="#F8FAFC"/><rect x="190" y="65" width="420" height="108" rx="16" fill="#0F766E"/><text x="230" y="118" fill="white" font-family="sans-serif" font-size="24" font-weight="800">CREATIVE TECH CV</text><text x="230" y="146" fill="#CCFBF1" font-family="sans-serif" font-size="14" font-weight="600">Two-Column Portfolio Resume</text><rect x="230" y="215" width="150" height="10" rx="5" fill="#CBD5E1"/><rect x="230" y="215" width="130" height="10" rx="5" fill="#0D9488"/><rect x="230" y="245" width="150" height="10" rx="5" fill="#CBD5E1"/><rect x="230" y="245" width="115" height="10" rx="5" fill="#0D9488"/></svg>`), desc: 'Bespoke two-column resume design with custom skill meters and clean typography.' }
+        ];
+
+        const translations = {
+            en: {
+                brandSub: "Graphic, 3D & Motion", navPortfolio: "Portfolio", navTools: "Tools & Services", navAbout: "About", navContact: "Contact", navAdmin: "Admin",
+                heroBadge: "Ebrupyaar Creative Studio", heroTitle1: "Creative Visuals, 3D &", heroTitle2: "Motion Design.",
+                heroDesc: "Welcome to Ebrupyaar Portfolio. Explore creative works crafted with Photoshop, Illustrator, After Effects, Premiere Pro, Blender, Canva, Figma, and custom CV Creation.",
+                btnViewWork: "Explore Projects", btnHireMe: "Connect @ebrupyaar", statProjects: "Featured Works", statTools: "Design, 3D & CV", statSocial: "Official Handle",
+                heroCardTitle: "Graphic, Video, 3D & CV Studio", heroCardTools: "Ps • Ai • Ae • Pr • Blender • Canva • Figma • CV",
+                toolsHeading: "Creative Software & Services", toolPs: "Posters & Art", toolAi: "Logos & Vector", toolAe: "Motion & VFX", toolPr: "Video Editing",
+                toolBlender: "3D Modeling", toolCanva: "Social Media", toolFigma: "UI / UX Design", toolCvTitle: "CV Creator", toolCv: "Modern Resumes",
+                gallerySub: "Portfolio Gallery", galleryTitle: "Selected Creative Works", filterAll: "All Works", loadMore: "Load More Works", showLess: "Show Less",
+                aboutSub: "About Ebrupyaar", aboutTitle: "Turning Creative Ideas into Visual Impact",
+                aboutP1: "Hi, I'm Ebrupyaar — a multidisciplinary Graphic Designer, Video Editor, 3D Artist, and CV Creator. I craft eye-catching posters in Photoshop, clean logos in Illustrator, motion graphics in After Effects, cinematic edits in Premiere Pro, 3D renders in Blender, modern UI in Figma & Canva, and executive CVs that get you hired.",
+                aboutP2: "Browse my latest works above or connect with me across LinkedIn, Telegram, TikTok, Facebook, and YouTube using @ebrupyaar.",
+                aboutHandleLabel: "All Social Media Platforms", aboutQualityLabel: "Creative Dedication",
+                contactSub: "Let's Work Together", contactTitle: "Connect with @ebrupyaar",
+                contactDesc: "Follow my daily creative journey or message me directly on LinkedIn, Telegram, TikTok, Facebook, or YouTube using @ebrupyaar.",
+                footerCopy: "© 2026 Ebrupyaar Portfolio (@ebrupyaar). All rights reserved.",
+                pinTitle: "Admin Access", pinSubtitle: "Enter your 6-digit PIN to upload or manage projects.", pinSubmit: "Unlock Admin Panel",
+                viewProjectBtn: "View Project", watchVideoBtn: "Play Video"
+            },
+            am: {
+                brandSub: "ግራፊክ፣ 3D እና ሞሽን", navPortfolio: "ስራዎቼ", navTools: "ቱሎች እና አገልግሎቶች", navAbout: "ስለ እኔ", navContact: "ያግኙኝ", navAdmin: "አድሚን",
+                heroBadge: "Ebrupyaar ክሬቲቭ ስቱዲዮ", heroTitle1: "ማራኪ ግራፊክስ፣ 3D እና", heroTitle2: "ሞሽን ዲዛይን።",
+                heroDesc: "እንኳን ወደ Ebrupyaar ፖርትፎሊዮ በደህና መጡ። በ Photoshop፣ Illustrator፣ After Effects፣ Premiere Pro፣ Blender፣ Canva፣ Figma እና ፕሮፌሽናል CV ዝግጅት የተሰሩ ስራዎችን እዚህ ይመልከቱ።",
+                btnViewWork: "ስራዎቼን ይመልከቱ", btnHireMe: "በ @ebrupyaar ያግኙኝ", statProjects: "የተሰሩ ፕሮጀክቶች", statTools: "ዲዛይን፣ 3D እና CV", statSocial: "ኦፊሴላዊ አድራሻ",
+                heroCardTitle: "ግራፊክስ፣ ቪዲዮ፣ 3D እና CV ስቱዲዮ", heroCardTools: "Ps • Ai • Ae • Pr • Blender • Canva • Figma • CV",
+                toolsHeading: "የምጠቀምባቸው ሶፍትዌሮች እና አገልግሎቶች", toolPs: "ፖስተር እና ምስል", toolAi: "ሎጎ እና ቬክተር", toolAe: "ሞሽን እና VFX", toolPr: "ቪዲዮ ኤዲቲንግ",
+                toolBlender: "3D ሞዴሊንግ", toolCanva: "ሶሻል ሚዲያ", toolFigma: "UI / UX ዲዛይን", toolCvTitle: "CV አዘጋጅ", toolCv: "ዘመናዊ ሲቪ (Resume)",
+                gallerySub: "የስራዎች ማሳያ", galleryTitle: "የተመረጡ የፈጠራ ስራዎች", filterAll: "ሁሉም ስራዎች", loadMore: "ተጨማሪ ስራዎችን ይመልከቱ", showLess: "ቀንስ (Show Less)",
+                aboutSub: "ስለ Ebrupyaar", aboutTitle: "ሀሳብዎን ወደ ማራኪ ምስል እና ቪዲዮ እንቀይራለን",
+                aboutP1: "ሰላም፣ Ebrupyaar እባላለሁ። በ Photoshop ፖስተሮችን፣ በ Illustrator ሎጎዎችን፣ በ After Effects ሞሽን ግራፊክስ፣ በ Premiere Pro ቪዲዮ ኤዲቲንግ፣ በ Blender 3D ዲዛይን፣ በ Figma እና Canva ዘመናዊ ዲዛይኖችን እንዲሁም ፕሮፌሽናል CV አዘጋጃለሁ።",
+                aboutP2: "ከላይ የተዘረዘሩትን ስራዎቼን ይመልከቱ፤ ለስራ ትብብር ወይም ትዕዛዝ በ LinkedIn፣ Telegram፣ TikTok፣ Facebook እና YouTube @ebrupyaar ብለው ያግኙኝ።",
+                aboutHandleLabel: "በሁሉም ሶሻል ሚዲያዎች", aboutQualityLabel: "ጥራት ያለው ስራ",
+                contactSub: "አብረን እንስራ", contactTitle: "በ @ebrupyaar ያግኙኝ",
+                contactDesc: "የዕለት ተዕለት የዲዛይን ስራዎቼን ለመከታተል ወይም ስራ ለማሰራት በ LinkedIn፣ Telegram፣ TikTok፣ Facebook እና YouTube @ebrupyaar ይጠቀሙ።",
+                footerCopy: "© 2026 Ebrupyaar Portfolio (@ebrupyaar). መብቱ በህግ የተጠበቀ ነው።",
+                pinTitle: "የአድሚን መግቢያ", pinSubtitle: "ፕሮጀክቶችን ለመጫን ባለ 6 አሃዝ ሚስጥር ቁጥር (PIN) ያስገቡ።", pinSubmit: "ክፈት (Unlock)",
+                viewProjectBtn: "ስራውን ይመልከቱ", watchVideoBtn: "ቪዲዮውን አጫውት"
+            }
+        };
+
+        function loadInitialProjects() {
+            try {
+                const raw = localStorage.getItem(STORAGE_PROJECTS_KEY);
+                if (!raw) return defaultProjects.slice();
+                const parsed = JSON.parse(raw);
+                if (!Array.isArray(parsed)) return defaultProjects.slice();
+                const defMap = new Map(defaultProjects.map(p => [p.id, p]));
+                return parsed.map(item => {
+                    const def = defMap.get(item.id);
+                    if (def && typeof item.url === 'string' && item.url.includes('placehold.co')) {
+                        return Object.assign({}, item, { url: def.url });
+                    }
+                    return item;
+                });
+            } catch (e) {
+                return defaultProjects.slice();
+            }
+        }
+
+        let projects = loadInitialProjects();
+
+        function normalizeMediaUrl(raw) {
+            const trimmed = (raw || '').trim();
+            if (!trimmed) return '';
+            if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:') || trimmed.startsWith('/')) return trimmed;
+            if (/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/|$)/.test(trimmed)) return 'https://' + trimmed;
+            return trimmed;
+        }
+
+        function extractYouTubeId(url) {
+            try {
+                const parsed = new URL(url);
+                const host = parsed.hostname.replace(/^www\./, '').toLowerCase();
+                if (host === 'youtu.be') {
+                    const id = parsed.pathname.split('/').filter(Boolean)[0];
+                    if (id && id.length >= 11) return { id: id.slice(0, 11), isShort: false };
+                }
+                if (host === 'youtube.com' || host === 'm.youtube.com' || host === 'music.youtube.com') {
+                    const vParam = parsed.searchParams.get('v');
+                    if (vParam && vParam.length >= 11) return { id: vParam.slice(0, 11), isShort: false };
+                    const parts = parsed.pathname.split('/').filter(Boolean);
+                    if (parts.length >= 2 && ['shorts', 'embed', 'live', 'v'].includes(parts[0])) {
+                        const id = parts[1];
+                        if (id && id.length >= 11) return { id: id.slice(0, 11), isShort: parts[0] === 'shorts' };
+                    }
+                }
+            } catch (e) {}
+            const regExp = /^.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|shorts\/|live\/|watch\?v=|&v=)([A-Za-z0-9_-]{11}).*/;
+            const match = url.match(regExp);
+            if (match && match[1]) return { id: match[1], isShort: /\/shorts\//i.test(url) };
+            return null;
+        }
+
+        function extractTikTokId(url) {
+            const match = url.match(/tiktok\.com\/(?:@[^/]+\/video|embed\/v2|player\/v1|v)\/(\d+)/i);
+            if (match && match[1]) return match[1];
+            const fallback = url.match(/\/video\/(\d+)/i);
+            return fallback ? fallback[1] : null;
+        }
+
+        function parseMediaUrl(rawUrl, preferredAspect) {
+            const pref = preferredAspect || 'auto';
+            const url = normalizeMediaUrl(rawUrl);
+
+            const yt = extractYouTubeId(url);
+            if (yt) {
+                const defAspect = yt.isShort ? '9:16' : '16:9';
+                return { kind: 'youtube', normalizedUrl: url, embedUrl: 'https://www.youtube.com/embed/' + yt.id + '?autoplay=1&rel=0&playsinline=1', thumbnailUrl: 'https://img.youtube.com/vi/' + yt.id + '/hqdefault.jpg', aspect: pref === 'auto' ? defAspect : pref, platformLabel: yt.isShort ? 'YouTube Shorts' : 'YouTube', isVideo: true, videoId: yt.id };
+            }
+            if (/(?:^|\.)tiktok\.com/i.test(url)) {
+                const tid = extractTikTokId(url);
+                return { kind: 'tiktok', normalizedUrl: url, embedUrl: tid ? 'https://www.tiktok.com/player/v1/' + tid + '?autoplay=1&music_info=1&description=1&rel=0' : null, thumbnailUrl: null, aspect: pref === 'auto' ? '9:16' : pref, platformLabel: 'TikTok', isVideo: true, videoId: tid };
+            }
+            const vimeoMatch = url.match(/(?:player\.)?vimeo\.com\/(?:video\/)?(\d+)/i);
+            if (vimeoMatch && vimeoMatch[1]) {
+                return { kind: 'vimeo', normalizedUrl: url, embedUrl: 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?autoplay=1', thumbnailUrl: null, aspect: pref === 'auto' ? '16:9' : pref, platformLabel: 'Vimeo', isVideo: true, videoId: vimeoMatch[1] };
+            }
+            const igMatch = url.match(/instagram\.com\/(reel|reels|p|tv)\/([A-Za-z0-9_-]+)/i);
+            if (igMatch) {
+                const isReel = igMatch[1].toLowerCase().startsWith('reel');
+                return { kind: 'instagram', normalizedUrl: url, embedUrl: 'https://www.instagram.com/' + (isReel ? 'reel' : 'p') + '/' + igMatch[2] + '/embed/', thumbnailUrl: null, aspect: pref === 'auto' ? (isReel ? '9:16' : '4:5') : pref, platformLabel: isReel ? 'Instagram Reel' : 'Instagram', isVideo: isReel };
+            }
+            if (/(?:facebook\.com\/.*\/videos\/|facebook\.com\/reel\/|facebook\.com\/watch|fb\.watch\/)/i.test(url)) {
+                const isReel = /\/reel\//i.test(url);
+                return { kind: 'facebook', normalizedUrl: url, embedUrl: 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(url) + '&show_text=false&autoplay=true', thumbnailUrl: null, aspect: pref === 'auto' ? (isReel ? '9:16' : '16:9') : pref, platformLabel: isReel ? 'Facebook Reel' : 'Facebook Video', isVideo: true };
+            }
+            const gdMatch = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([A-Za-z0-9_-]+)/i);
+            if (gdMatch && gdMatch[1]) {
+                return { kind: 'gdrive', normalizedUrl: url, embedUrl: 'https://drive.google.com/file/d/' + gdMatch[1] + '/preview', thumbnailUrl: null, aspect: pref === 'auto' ? '16:9' : pref, platformLabel: 'Google Drive', isVideo: true, videoId: gdMatch[1] };
+            }
+            if (url.startsWith('data:video/') || /\.(mp4|webm|ogg|ogv|mov|m4v)(\?.*|#.*)?$/i.test(url)) {
+                return { kind: 'video', normalizedUrl: url, embedUrl: null, thumbnailUrl: null, aspect: pref === 'auto' ? '16:9' : pref, platformLabel: 'Video', isVideo: true };
+            }
+            return { kind: 'image', normalizedUrl: url, embedUrl: null, thumbnailUrl: url, aspect: pref === 'auto' ? '16:9' : pref, platformLabel: 'Image', isVideo: false };
+        }
+
+        function getAspectContainerClass(aspect) {
+            if (aspect === '9:16') return 'aspect-[9/16] w-full max-w-[340px] mx-auto';
+            if (aspect === '1:1') return 'aspect-square w-full max-w-[460px] mx-auto';
+            if (aspect === '4:5') return 'aspect-[4/5] w-full max-w-[400px] mx-auto';
+            return 'aspect-video w-full';
+        }
+
+        function getCardInnerFrameClass(aspect) {
+            if (aspect === '9:16') return 'h-full aspect-[9/16] mx-auto rounded-lg overflow-hidden shadow-lg ring-1 ring-white/20';
+            if (aspect === '1:1') return 'h-full aspect-square mx-auto rounded-lg overflow-hidden shadow-md ring-1 ring-white/15';
+            if (aspect === '4:5') return 'h-full aspect-[4/5] mx-auto rounded-lg overflow-hidden shadow-md ring-1 ring-white/15';
+            return 'w-full h-full';
+        }
+
+        function fetchTikTokOEmbed(url, onUpdate) {
+            if (tiktokMetaCache.has(url)) {
+                const cached = tiktokMetaCache.get(url);
+                if (cached && onUpdate) onUpdate(cached);
+                return;
+            }
+            fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent(url))
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    if (!data) { tiktokMetaCache.set(url, null); return; }
+                    const htmlId = typeof data.html === 'string' ? data.html.match(/data-video-id="(\d+)"/) : null;
+                    const meta = {
+                        thumbnailUrl: typeof data.thumbnail_url === 'string' ? data.thumbnail_url : null,
+                        videoId: (typeof data.embed_product_id === 'string' && /^\d+$/.test(data.embed_product_id)) ? data.embed_product_id : (htmlId ? htmlId[1] : null)
+                    };
+                    tiktokMetaCache.set(url, meta);
+                    if (onUpdate) onUpdate(meta);
+                })
+                .catch(() => tiktokMetaCache.set(url, null));
+        }
+
+        function buildCardPreviewHtml(url, title, mediaAspect, slotId) {
+            const parsed = parseMediaUrl(url, mediaAspect);
+            const isFramed = parsed.aspect !== '16:9' || parsed.isVideo;
+            const cachedTikTok = parsed.kind === 'tiktok' ? tiktokMetaCache.get(parsed.normalizedUrl) : null;
+            const thumb = parsed.kind === 'tiktok' ? (cachedTikTok ? cachedTikTok.thumbnailUrl : null) : parsed.thumbnailUrl;
+            const safeTitle = escapeHtml(title);
+            const safeFallback = escapeHtml(FALLBACK_PROJECT_ART);
+
+            let innerHtml = '';
+            if (parsed.kind === 'video') {
+                innerHtml = `<video src="${escapeHtml(parsed.normalizedUrl)}" muted playsinline preload="metadata" class="w-full h-full object-cover"></video>`;
+            } else if (thumb) {
+                innerHtml = `<img src="${escapeHtml(thumb)}" alt="${safeTitle}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${safeFallback}'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">`;
+            } else if (parsed.isVideo) {
+                innerHtml = `
+                    <div class="w-full h-full bg-gradient-to-br from-[#1B1340] via-[#311B7E] to-[#6D4AFF] flex flex-col items-center justify-center p-3 text-center">
+                        <i class="fa-solid fa-film text-2xl text-purple-200 mb-1.5"></i>
+                        <span class="text-[11px] font-bold text-white tracking-wide">${escapeHtml(parsed.platformLabel)}</span>
+                        <span class="text-[10px] text-purple-200 mt-0.5 tabular-nums">${escapeHtml(parsed.aspect)}</span>
+                    </div>`;
+            } else {
+                innerHtml = `<img src="${safeFallback}" alt="${safeTitle}" class="w-full h-full object-cover">`;
+            }
+
+            const playOverlay = parsed.isVideo ? `
+                <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-950/20 group-hover:bg-slate-950/35 transition">
+                    <div class="w-12 h-12 rounded-full bg-white/95 text-primary shadow-xl flex items-center justify-center group-hover:scale-110 transition">
+                        <i class="fa-solid fa-play text-base ml-0.5"></i>
+                    </div>
+                </div>` : '';
+
+            const badge = (parsed.isVideo || parsed.aspect !== '16:9')
+                ? `<span class="pointer-events-none absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-slate-950/80 text-white text-[10px] font-semibold tabular-nums backdrop-blur-sm">${escapeHtml(parsed.isVideo ? parsed.platformLabel + ' · ' + parsed.aspect : parsed.aspect)}</span>`
+                : '';
+
+            return `
+                <div ${slotId ? `id="${slotId}"` : ''} class="aspect-video overflow-hidden relative flex items-center justify-center ${isFramed ? 'bg-slate-950' : 'bg-slate-100 dark:bg-slate-900'}">
+                    <div class="${getCardInnerFrameClass(parsed.aspect)} relative overflow-hidden">${innerHtml}</div>
+                    ${playOverlay}
+                    ${badge}
+                </div>`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('hero-showreel-img').src = HERO_SHOWREEL_ART;
+            document.getElementById('about-studio-img').src = ABOUT_STUDIO_ART;
+            applyTheme(currentTheme);
+            applyLanguage(currentLang);
+            renderProjects();
+            updateStats();
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    toggleLightbox(false);
+                    toggleAdminModal(false);
+                    togglePinModal(false);
+                }
+            });
+        });
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('ebrupyaar_theme', currentTheme);
+            applyTheme(currentTheme);
+        }
+
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (theme === 'dark') {
+                root.classList.add('dark');
+                if (icon) icon.className = 'fa-solid fa-sun text-sm';
+            } else {
+                root.classList.remove('dark');
+                if (icon) icon.className = 'fa-solid fa-moon text-sm';
+            }
+        }
+
+        function toggleMobileMenu(forceState) {
+            const menu = document.getElementById('mobile-nav-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            const shouldOpen = typeof forceState === 'boolean' ? forceState : menu.classList.contains('hidden');
+            if (shouldOpen) {
+                menu.classList.remove('hidden');
+                icon.className = 'fa-solid fa-xmark text-sm';
+            } else {
+                menu.classList.add('hidden');
+                icon.className = 'fa-solid fa-bars text-sm';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'am' : 'en';
+            localStorage.setItem('ebrupyaar_lang', currentLang);
+            applyLanguage(currentLang);
+            renderProjects();
+        }
+
+        function applyLanguage(lang) {
+            const dict = translations[lang] || translations.en;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerText = dict[key];
+            });
+            const label = document.getElementById('lang-label');
+            if (label) label.innerText = lang === 'en' ? 'EN | አማ' : 'አማ | EN';
+        }
+
+        function copyHandle() {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText('@ebrupyaar').catch(() => {});
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = '@ebrupyaar';
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+            showToast(currentLang === 'am' ? '@ebrupyaar ተቀድቷል!' : 'Copied @ebrupyaar to clipboard!');
+        }
+
+        function showToast(msg, isError) {
+            const toast = document.getElementById('toast-box');
+            const msgSpan = document.getElementById('toast-msg');
+            const icon = document.getElementById('toast-icon');
+            msgSpan.innerText = msg;
+            icon.className = isError ? 'fa-solid fa-circle-exclamation text-rose-400' : 'fa-solid fa-circle-check text-emerald-400';
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function handleAdminClick() {
+            if (isAdminUnlocked) toggleAdminModal(true);
+            else togglePinModal(true);
+        }
+
+        function togglePinModal(show) {
+            const modal = document.getElementById('pin-modal');
+            const input = document.getElementById('admin-pin-input');
+            const err = document.getElementById('pin-error-msg');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                input.value = '';
+                err.classList.add('hidden');
+                setTimeout(() => input.focus(), 100);
+            } else {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        function verifyAdminPin(e) {
+            e.preventDefault();
+            const input = document.getElementById('admin-pin-input').value.trim();
+            const err = document.getElementById('pin-error-msg');
+            if (input === ADMIN_PIN) {
+                isAdminUnlocked = true;
+                updateAdminLockUI();
+                togglePinModal(false);
+                toggleAdminModal(true);
+                renderProjects();
+                showToast(currentLang === 'am' ? 'አድሚን ፓነል ተከፍቷል!' : 'Admin panel unlocked!');
+            } else {
+                err.classList.remove('hidden');
+                document.getElementById('admin-pin-input').value = '';
+            }
+        }
+
+        function lockAdminSession() {
+            isAdminUnlocked = false;
+            updateAdminLockUI();
+            toggleAdminModal(false);
+            renderProjects();
+            showToast(currentLang === 'am' ? 'አድሚን ፓነል ተቆልፏል።' : 'Admin session locked.');
+        }
+
+        function updateAdminLockUI() {
+            const icon = document.getElementById('admin-lock-icon');
+            if (icon) icon.className = isAdminUnlocked ? 'fa-solid fa-lock-open text-xs text-emerald-300' : 'fa-solid fa-lock text-xs';
+        }
+
+        function saveToStorage() {
+            try {
+                localStorage.setItem(STORAGE_PROJECTS_KEY, JSON.stringify(projects));
+            } catch (err) {
+                showToast('Storage full! Try using an image or video URL instead.', true);
+            }
+        }
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            const warn = document.getElementById('file-size-warning');
+            if (!file) return;
+            if (file.size > 3.5 * 1024 * 1024) {
+                warn.innerText = 'Large file detected (>3.5 MB). For videos, pasting a YouTube/TikTok/MP4 URL is recommended.';
+                warn.classList.remove('hidden');
+            } else {
+                warn.classList.add('hidden');
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedDataUrl = e.target.result;
+                updateAdminPreview();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function selectAspect(aspect) {
+            selectedMediaAspect = aspect;
+            document.querySelectorAll('.aspect-btn').forEach(btn => {
+                if (btn.getAttribute('data-aspect') === aspect) {
+                    btn.className = 'aspect-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary text-white shadow-sm transition cursor-pointer';
+                } else {
+                    btn.className = 'aspect-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-700 transition cursor-pointer';
+                }
+            });
+            updateAdminPreview();
+        }
+
+        function updateAdminPreview() {
+            const rawUrl = uploadedDataUrl || document.getElementById('proj-url').value.trim();
+            const box = document.getElementById('admin-preview-box');
+            const metaSpan = document.getElementById('admin-preview-meta');
+            const mediaDiv = document.getElementById('admin-preview-media');
+            const tip = document.getElementById('admin-tiktok-tip');
+
+            if (!rawUrl) {
+                box.classList.add('hidden');
+                mediaDiv.innerHTML = '';
+                return;
+            }
+            const parsed = parseMediaUrl(rawUrl, selectedMediaAspect);
+            box.classList.remove('hidden');
+            metaSpan.innerText = parsed.platformLabel + ' · ' + parsed.aspect;
+            mediaDiv.innerHTML = buildCardPreviewHtml(rawUrl, document.getElementById('proj-title').value || 'Preview', selectedMediaAspect, 'admin-preview-slot');
+            if (parsed.kind === 'tiktok' && !parsed.videoId) {
+                tip.classList.remove('hidden');
+                fetchTikTokOEmbed(parsed.normalizedUrl, () => {
+                    const slot = document.getElementById('admin-preview-slot');
+                    if (slot) slot.outerHTML = buildCardPreviewHtml(rawUrl, document.getElementById('proj-title').value || 'Preview', selectedMediaAspect, 'admin-preview-slot');
+                });
+            } else {
+                tip.classList.add('hidden');
+            }
+        }
+
+        function toggleShowAllProjects() {
+            showAllProjects = !showAllProjects;
+            renderProjects();
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            const loadMoreWrapper = document.getElementById('load-more-wrapper');
+            const loadMoreText = document.getElementById('load-more-text');
+            const loadMoreIcon = document.getElementById('load-more-icon');
+
+            grid.innerHTML = '';
+            const dict = translations[currentLang] || translations.en;
+            const filteredItems = projects.filter(p => currentFilter === 'All' || p.category === currentFilter);
+
+            if (filteredItems.length === 0) {
+                loadMoreWrapper.classList.add('hidden');
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-4xl mb-3 text-slate-300 dark:text-slate-600"></i><p class="text-sm font-medium">No projects found in this category.</p></div>`;
+                return;
+            }
+
+            const visibleItems = showAllProjects ? filteredItems : filteredItems.slice(0, INITIAL_VISIBLE_COUNT);
+
+            if (filteredItems.length > INITIAL_VISIBLE_COUNT) {
+                loadMoreWrapper.classList.remove('hidden');
+                const remainingCount = filteredItems.length - INITIAL_VISIBLE_COUNT;
+                if (showAllProjects) {
+                    loadMoreText.innerText = dict.showLess;
+                    loadMoreIcon.className = 'fa-solid fa-chevron-up text-xs';
+                } else {
+                    loadMoreText.innerText = dict.loadMore + ' (+' + remainingCount + ')';
+                    loadMoreIcon.className = 'fa-solid fa-chevron-down text-xs';
+                }
+            } else {
+                loadMoreWrapper.classList.add('hidden');
+            }
+
+            visibleItems.forEach(item => {
+                const parsed = parseMediaUrl(item.url, item.mediaAspect);
+                const slotId = 'card-media-' + item.id;
+                const card = document.createElement('article');
+                card.className = 'group bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-purple-100/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between';
+
+                const deleteBtnHtml = isAdminUnlocked
+                    ? `<button type="button" onclick="deleteProject('${escapeHtml(item.id)}')" class="text-slate-400 hover:text-rose-500 text-xs transition p-1 cursor-pointer" title="Delete Project"><i class="fa-solid fa-trash-can"></i></button>`
+                    : `<span class="text-[11px] font-medium text-slate-400">@ebrupyaar</span>`;
+
+                card.innerHTML = `
+                    <div>
+                        <div onclick="openLightbox('${escapeHtml(item.id)}')" class="cursor-pointer">
+                            ${buildCardPreviewHtml(item.url, item.title, item.mediaAspect, slotId)}
+                        </div>
+                        <div class="p-5">
+                            <div class="text-xs font-semibold text-primary dark:text-purple-300 mb-1.5">${escapeHtml(item.category)}</div>
+                            <h3 onclick="openLightbox('${escapeHtml(item.id)}')" class="font-bold text-base text-slate-900 dark:text-white group-hover:text-primary transition cursor-pointer line-clamp-1">${escapeHtml(item.title)}</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2 leading-relaxed">${escapeHtml(item.desc)}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-3.5 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-2">
+                        <button type="button" onclick="openLightbox('${escapeHtml(item.id)}')" class="text-xs font-bold text-primary dark:text-purple-400 hover:text-primary-dark flex items-center space-x-1.5 cursor-pointer">
+                            <span>${parsed.isVideo ? dict.watchVideoBtn : dict.viewProjectBtn}</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                        ${deleteBtnHtml}
+                    </div>
+                `;
+                grid.appendChild(card);
+
+                if (parsed.kind === 'tiktok' && !tiktokMetaCache.has(parsed.normalizedUrl)) {
+                    fetchTikTokOEmbed(parsed.normalizedUrl, () => {
+                        const slot = document.getElementById(slotId);
+                        if (slot) slot.outerHTML = buildCardPreviewHtml(item.url, item.title, item.mediaAspect, slotId);
+                    });
+                }
+            });
+        }
+
+        function filterProjects(category) {
+            currentFilter = category;
+            showAllProjects = false;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.className = 'filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-primary text-white transition shadow-sm whitespace-nowrap shrink-0 cursor-pointer';
+                } else {
+                    btn.className = 'filter-btn px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-darkCard text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 whitespace-nowrap shrink-0 cursor-pointer';
+                }
+            });
+            renderProjects();
+        }
+
+        function filterAndScroll(category) {
+            filterProjects(category);
+            const portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) portfolioSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleAdminModal(show) {
+            const modal = document.getElementById('admin-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                document.getElementById('upload-form').reset();
+                document.getElementById('file-size-warning').classList.add('hidden');
+                document.getElementById('admin-preview-box').classList.add('hidden');
+                uploadedDataUrl = '';
+                selectAspect('auto');
+            }
+        }
+
+        function handleProjectSubmit(e) {
+            e.preventDefault();
+            const title = document.getElementById('proj-title').value.trim();
+            const category = document.getElementById('proj-category').value;
+            const urlInput = normalizeMediaUrl(document.getElementById('proj-url').value);
+            const desc = document.getElementById('proj-desc').value.trim();
+
+            const finalUrl = uploadedDataUrl || urlInput || FALLBACK_PROJECT_ART;
+            projects.unshift({
+                id: 'proj_' + Date.now(),
+                title,
+                category,
+                url: finalUrl,
+                desc,
+                mediaAspect: selectedMediaAspect
+            });
+            saveToStorage();
+            renderProjects();
+            updateStats();
+            toggleAdminModal(false);
+            showToast(currentLang === 'am' ? 'አዲስ ስራ በተሳካ ሁኔታ ተጭኗል!' : 'New project published to Ebrupyaar Portfolio!');
+        }
+
+        function deleteProject(id) {
+            if (!isAdminUnlocked) return;
+            projects = projects.filter(p => p.id !== id);
+            saveToStorage();
+            renderProjects();
+            updateStats();
+            showToast(currentLang === 'am' ? 'ፕሮጀክቱ ተሰርዟል።' : 'Project removed.');
+        }
+
+        function updateStats() {
+            const countElem = document.getElementById('stat-total-projects');
+            if (countElem) countElem.innerText = projects.length + '+';
+        }
+
+        function buildLightboxMediaHtml(item) {
+            const parsed = parseMediaUrl(item.url, item.mediaAspect);
+            const cachedTikTok = parsed.kind === 'tiktok' ? tiktokMetaCache.get(parsed.normalizedUrl) : null;
+            const resolvedTikTokId = parsed.videoId || (cachedTikTok ? cachedTikTok.videoId : null);
+            const resolvedEmbed = (parsed.kind === 'tiktok' && resolvedTikTokId)
+                ? 'https://www.tiktok.com/player/v1/' + resolvedTikTokId + '?autoplay=1&music_info=1&description=1&rel=0'
+                : parsed.embedUrl;
+
+            const containerClass = getAspectContainerClass(parsed.aspect);
+
+            if (parsed.kind === 'video') {
+                return `
+                    <div class="rounded-2xl overflow-hidden bg-slate-950 p-2 sm:p-3 flex items-center justify-center">
+                        <div class="${containerClass} rounded-xl overflow-hidden bg-black">
+                            <video src="${escapeHtml(parsed.normalizedUrl)}" controls autoplay playsinline class="w-full h-full object-contain"></video>
+                        </div>
+                    </div>`;
+            }
+
+            if (resolvedEmbed) {
+                return `
+                    <div class="rounded-2xl overflow-hidden bg-slate-950 p-2 sm:p-3 flex flex-col items-center justify-center">
+                        <div class="${containerClass} rounded-xl overflow-hidden bg-black shadow-2xl">
+                            <iframe class="w-full h-full border-0" src="${escapeHtml(resolvedEmbed)}" title="${escapeHtml(item.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-2.5 flex items-center justify-between w-full px-1 text-[11px] text-slate-400">
+                            <span>${escapeHtml(parsed.platformLabel)} · ${escapeHtml(parsed.aspect)}</span>
+                            <a href="${escapeHtml(parsed.normalizedUrl)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1 text-purple-300 hover:text-white transition font-medium">
+                                <span>Open Original</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>`;
+            }
+
+            if (parsed.kind === 'tiktok') {
+                const thumbImg = (cachedTikTok && cachedTikTok.thumbnailUrl)
+                    ? `<img src="${escapeHtml(cachedTikTok.thumbnailUrl)}" alt="${escapeHtml(item.title)}" referrerpolicy="no-referrer" class="absolute inset-0 w-full h-full object-cover opacity-50">`
+                    : '';
+                return `
+                    <div class="rounded-2xl overflow-hidden bg-slate-950 p-4 flex flex-col items-center justify-center">
+                        <div class="${containerClass} rounded-xl overflow-hidden bg-gradient-to-br from-[#1B1340] via-[#311B7E] to-[#6D4AFF] relative flex flex-col items-center justify-center text-center p-6">
+                            ${thumbImg}
+                            <div class="relative z-10 flex flex-col items-center space-y-4">
+                                <div class="w-16 h-16 rounded-full bg-white text-primary flex items-center justify-center shadow-xl">
+                                    <i class="fa-solid fa-play text-xl ml-0.5"></i>
+                                </div>
+                                <p class="text-xs text-white/90 font-medium max-w-[220px]">Short TikTok links open directly on TikTok. Use a full TikTok URL (/video/ID) for inline playback.</p>
+                                <a href="${escapeHtml(parsed.normalizedUrl)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-dark transition shadow-lg">
+                                    <span>Watch on TikTok</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            if (item.mediaAspect && item.mediaAspect !== 'auto') {
+                return `
+                    <div class="rounded-2xl overflow-hidden bg-slate-950 p-2 sm:p-3 flex items-center justify-center">
+                        <div class="${containerClass} rounded-xl overflow-hidden bg-slate-900">
+                            <img src="${escapeHtml(parsed.normalizedUrl)}" alt="${escapeHtml(item.title)}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${escapeHtml(FALLBACK_PROJECT_ART)}'" class="w-full h-full object-cover">
+                        </div>
+                    </div>`;
+            }
+
+            return `
+                <div class="rounded-2xl overflow-hidden bg-slate-900 max-h-[65vh] flex items-center justify-center">
+                    <img src="${escapeHtml(parsed.normalizedUrl)}" alt="${escapeHtml(item.title)}" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${escapeHtml(FALLBACK_PROJECT_ART)}'" class="w-full h-auto object-contain max-h-[65vh]">
+                </div>`;
+        }
+
+        function openLightbox(id) {
+            const item = projects.find(p => p.id === id);
+            if (!item) return;
+
+            const content = document.getElementById('lightbox-content');
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2 text-xs font-semibold">
+                        <span class="text-primary dark:text-purple-300 font-bold">${escapeHtml(item.category)}</span>
+                        <span aria-hidden="true" class="text-slate-300 dark:text-slate-600">·</span>
+                        <span class="text-slate-400">@ebrupyaar</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white pr-8">${escapeHtml(item.title)}</h2>
+                    <div id="lightbox-media-slot">${buildLightboxMediaHtml(item)}</div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed pt-2">${escapeHtml(item.desc)}</p>
+                </div>
+            `;
+
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            const parsed = parseMediaUrl(item.url, item.mediaAspect);
+            if (parsed.kind === 'tiktok' && !parsed.videoId && !tiktokMetaCache.has(parsed.normalizedUrl)) {
+                fetchTikTokOEmbed(parsed.normalizedUrl, () => {
+                    const slot = document.getElementById('lightbox-media-slot');
+                    if (slot) slot.innerHTML = buildLightboxMediaHtml(item);
+                });
+            }
+        }
+
+        function toggleLightbox(show) {
+            const modal = document.getElementById('lightbox-modal');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                document.getElementById('lightbox-content').innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
